@@ -1,0 +1,1 @@
+{"version":3,"sources":["embeds.js"],"names":["define","jsbin","embeds"],"mappings":";;;;;;;AAAAA,QACC,WACC,SAASC,GACV,OAAOA,EAAMC","file":"../embeds.js","sourcesContent":["define([\r\n\t\"./jsbin\"\r\n],function(jsbin){\r\n\treturn jsbin.embeds = {};\r\n});"]}

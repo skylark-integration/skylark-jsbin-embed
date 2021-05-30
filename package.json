@@ -1,0 +1,29 @@
+{
+  "name": "skylark-jsbin-embeds",
+  "description": "A version of jsbin-embed that ported to running on skylarkjs.",
+  "version": "0.9.0",
+  "keywords": [
+    "jsbin-embeds",
+    "playground"
+  ],
+  "homepage": "https://github.com/skylark-integration/skylark-jsbin-embeds/",
+  "author": "Hudaokeji, Inc.",
+  "scripts": {
+    "build": "slib build ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skylark-integration/skylark-jsbin-embeds.git"
+  },
+  "bugs": {
+    "url": "https://github.com/skylark-integration/skylark-jsbin-embeds/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "skylark-langx-ns": "git+https://github.com/skylark-langx/skylark-langx-ns.git#master",
+    "skylark-langx-urls": "git+https://github.com/skylark-langx/skylark-langx-urls.git"
+  },
+  "engines": {
+    "node": ">=0.10.1"
+  }
+}
