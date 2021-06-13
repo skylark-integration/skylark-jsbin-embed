@@ -20,6 +20,8 @@
   },
   "license": "MIT",
   "dependencies": {
+    "skylark-domx-geom": "git+https://github.com/skylark-domx/skylark-domx-geom.git",
+    "skylark-domx-iframes": "git+https://github.com/skylark-domx/skylark-domx-iframes.git",
     "skylark-langx-ns": "git+https://github.com/skylark-langx/skylark-langx-ns.git#master",
     "skylark-langx-urls": "git+https://github.com/skylark-langx/skylark-langx-urls.git"
   },

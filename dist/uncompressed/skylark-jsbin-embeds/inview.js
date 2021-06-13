@@ -1,8 +1,10 @@
 define([
+  "skylark-domx-geom",
   "./embeds"
-],function(embeds){
+],function(geom,embeds){
   'use strict';
 
+  /*
   var docElem = document && document.documentElement;
 
   function viewportW() {
@@ -29,6 +31,6 @@ define([
     var r = calibrate(el.getBoundingClientRect(), cushion);
     return !!r && r.bottom >= 0 && r.right >= 0 && r.top <= viewportH() && r.left <= viewportW();
   }
-
-  return embeds.inview = inview;
+  */
+  return embeds.inview = geom.inview;
 });

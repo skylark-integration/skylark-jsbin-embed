@@ -5,5 +5,5 @@
  * @link https://github.com/skylark-integration/skylark-jsbin-embeds/
  * @license MIT
  */
-define(["./embeds","./hookMessaging"],function(e,t){return embed.loadRealEmbed=function(e){var d=e.cloneNode(),n=d.getAttribute("data-url");d.src=n.split("&")[0],d._src=n.split("&")[0],e.parentNode.replaceChild(d,e),t(d)}});
+define(["skylark-domx-iframes","./embeds"],function(e,d){return embed.loadRealEmbed=e.loadReal});
 //# sourceMappingURL=sourcemaps/loadRealEmbed.js.map

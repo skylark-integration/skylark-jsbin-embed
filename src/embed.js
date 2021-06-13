@@ -1,11 +1,10 @@
 define([
-  "skylark-langx-urls/getQuery",
-  "./embeds",
-  "./inview",
-  "./hookMessaging"
-],function(getQuery,embeds,inview,hookMessaging){
+  "skylark-domx-iframes",
+  "./embeds"
+],function(iframes,embeds){
   'use strict';
   
+  /*
   function embed(link) {
     var iframe = document.createElement('iframe');
     var url = link.href.replace(/edit/, 'embed');
@@ -36,6 +35,7 @@ define([
 
     link.parentNode.replaceChild(iframe, link);
   }
+  */
 
-  return embeds.embed = embed;
+  return embeds.embed = iframes.replace;
 });

@@ -1,8 +1,9 @@
 define([
-  "./embeds",
-  "./hookMessaging"
-],function(embeds,hookMessaging){
+  "skylark-domx-iframes",
+  "./embeds"
+],function(iframes,embeds){
 
+  /*
   function loadRealEmbed(iframe) {
     var clone = iframe.cloneNode();
     var url = clone.getAttribute('data-url');
@@ -12,6 +13,6 @@ define([
     iframe.parentNode.replaceChild(clone, iframe);
     hookMessaging(clone);
   }
-
-  return embed.loadRealEmbed = loadRealEmbed;  
+  */
+  return embed.loadRealEmbed = iframes.loadReal;  
 });

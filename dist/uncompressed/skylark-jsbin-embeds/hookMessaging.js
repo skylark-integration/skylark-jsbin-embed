@@ -1,8 +1,9 @@
 define([
+  "skylark-domx-iframes",
   "./embeds"
-],function(embeds){
+],function(iframes,embeds){
   'use strict';
-
+  /*
   function hookMessaging(iframe) {
     var onmessage = function (event) {
       if (!event) { event = window.event; }
@@ -12,7 +13,8 @@ define([
 
     window.addEventListener('message', onmessage);
   }
+  */
 
-  return embeds.hookMessaging = hookMessaging;
+  return embeds.hookMessaging = iframes.hookSizing;
 
 });

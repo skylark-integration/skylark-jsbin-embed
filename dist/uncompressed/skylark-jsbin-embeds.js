@@ -98,66 +98,13 @@ define('skylark-jsbin-embeds/embeds',[
 ],function(jsbin){
 	return jsbin.embeds = {};
 });
-define('skylark-jsbin-embeds/inview',[
-  "./embeds"
-],function(embeds){
-  'use strict';
-
-  var docElem = document && document.documentElement;
-
-  function viewportW() {
-    var a = docElem.clientWidth;
-    var b = window.innerWidth;
-    return a < b ? b : a;
-  }
-
-  function viewportH() {
-    var a = docElem.clientHeight;
-    var b = window.innerHeight;
-    return a < b ? a : b;
-  }
-
-  function calibrate(coords, cushion) {
-    var o = {};
-    cushion = +cushion || 0;
-    o.width = (o.right = coords.right + cushion) - (o.left = coords.left - cushion);
-    o.height = (o.bottom = coords.bottom + cushion) - (o.top = coords.top - cushion);
-    return o;
-  }
-
-  function inview(el, cushion) {
-    var r = calibrate(el.getBoundingClientRect(), cushion);
-    return !!r && r.bottom >= 0 && r.right >= 0 && r.top <= viewportH() && r.left <= viewportW();
-  }
-
-  return embeds.inview = inview;
-});
-define('skylark-jsbin-embeds/hookMessaging',[
-  "./embeds"
-],function(embeds){
-  'use strict';
-
-  function hookMessaging(iframe) {
-    var onmessage = function (event) {
-      if (!event) { event = window.event; }
-      // * 1 to coerse to number, and + 2 to compensate for border
-      iframe.style.height = (event.data.height * 1 + 2) + 'px';
-    };
-
-    window.addEventListener('message', onmessage);
-  }
-
-  return embeds.hookMessaging = hookMessaging;
-
-});
 define('skylark-jsbin-embeds/embed',[
-  "skylark-langx-urls/getQuery",
-  "./embeds",
-  "./inview",
-  "./hookMessaging"
-],function(getQuery,embeds,inview,hookMessaging){
+  "skylark-domx-iframes",
+  "./embeds"
+],function(iframes,embeds){
   'use strict';
   
+  /*
   function embed(link) {
     var iframe = document.createElement('iframe');
     var url = link.href.replace(/edit/, 'embed');
@@ -188,8 +135,9 @@ define('skylark-jsbin-embeds/embed',[
 
     link.parentNode.replaceChild(iframe, link);
   }
+  */
 
-  return embeds.embed = embed;
+  return embeds.embed = iframes.replace;
 });
 define('skylark-jsbin-embeds/findCode',[
   "./embeds"
@@ -262,11 +210,68 @@ define('skylark-jsbin-embeds/findCode',[
   return embeds.findCode = findCode;
 
 });
-define('skylark-jsbin-embeds/loadRealEmbed',[
-  "./embeds",
-  "./hookMessaging"
-],function(embeds,hookMessaging){
+define('skylark-jsbin-embeds/hookMessaging',[
+  "skylark-domx-iframes",
+  "./embeds"
+],function(iframes,embeds){
+  'use strict';
+  /*
+  function hookMessaging(iframe) {
+    var onmessage = function (event) {
+      if (!event) { event = window.event; }
+      // * 1 to coerse to number, and + 2 to compensate for border
+      iframe.style.height = (event.data.height * 1 + 2) + 'px';
+    };
 
+    window.addEventListener('message', onmessage);
+  }
+  */
+
+  return embeds.hookMessaging = iframes.hookSizing;
+
+});
+define('skylark-jsbin-embeds/inview',[
+  "skylark-domx-geom",
+  "./embeds"
+],function(geom,embeds){
+  'use strict';
+
+  /*
+  var docElem = document && document.documentElement;
+
+  function viewportW() {
+    var a = docElem.clientWidth;
+    var b = window.innerWidth;
+    return a < b ? b : a;
+  }
+
+  function viewportH() {
+    var a = docElem.clientHeight;
+    var b = window.innerHeight;
+    return a < b ? a : b;
+  }
+
+  function calibrate(coords, cushion) {
+    var o = {};
+    cushion = +cushion || 0;
+    o.width = (o.right = coords.right + cushion) - (o.left = coords.left - cushion);
+    o.height = (o.bottom = coords.bottom + cushion) - (o.top = coords.top - cushion);
+    return o;
+  }
+
+  function inview(el, cushion) {
+    var r = calibrate(el.getBoundingClientRect(), cushion);
+    return !!r && r.bottom >= 0 && r.right >= 0 && r.top <= viewportH() && r.left <= viewportW();
+  }
+  */
+  return embeds.inview = geom.inview;
+});
+define('skylark-jsbin-embeds/loadRealEmbed',[
+  "skylark-domx-iframes",
+  "./embeds"
+],function(iframes,embeds){
+
+  /*
   function loadRealEmbed(iframe) {
     var clone = iframe.cloneNode();
     var url = clone.getAttribute('data-url');
@@ -276,8 +281,8 @@ define('skylark-jsbin-embeds/loadRealEmbed',[
     iframe.parentNode.replaceChild(clone, iframe);
     hookMessaging(clone);
   }
-
-  return embed.loadRealEmbed = loadRealEmbed;  
+  */
+  return embed.loadRealEmbed = iframes.loadReal;  
 });
 define('skylark-jsbin-embeds/scoop',[
   "./embeds"
@@ -362,6 +367,7 @@ define('skylark-jsbin-embeds/init',[
     }
   }
 
+  /*
   function checkForPending() {
     var i = 0;
     var todo = [];
@@ -397,7 +403,7 @@ define('skylark-jsbin-embeds/init',[
     docElem.addEventListener('scroll', handler, true);
     window.addEventListener('scroll', handler, true);
   }
-
+  */
   return embeds.init = init;
 
 });

@@ -5,5 +5,5 @@
  * @link https://github.com/skylark-integration/skylark-jsbin-embeds/
  * @license MIT
  */
-define(["./embeds"],function(e){"use strict";return e.hookMessaging=function(e){window.addEventListener("message",function(n){n||(n=window.event),e.style.height=1*n.data.height+2+"px"})}});
+define(["skylark-domx-iframes","./embeds"],function(e,i){"use strict";return i.hookMessaging=e.hookSizing});
 //# sourceMappingURL=sourcemaps/hookMessaging.js.map

@@ -41,6 +41,7 @@ define([
     }
   }
 
+  /*
   function checkForPending() {
     var i = 0;
     var todo = [];
@@ -76,7 +77,7 @@ define([
     docElem.addEventListener('scroll', handler, true);
     window.addEventListener('scroll', handler, true);
   }
-
+  */
   return embeds.init = init;
 
 });
